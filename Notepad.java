@@ -4,7 +4,7 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
 
-public class Notass implements ActionListener {
+public class Notepad implements ActionListener {
 
     Frame f;
     MenuBar mb;
@@ -21,7 +21,7 @@ public class Notass implements ActionListener {
     FileNameExtensionFilter filter;
     String destino;
 
-    public Notass() {
+    public Notepad() {
         f = new Frame("NOTAS");
         mb = new MenuBar();
         m1 = new Menu("ARCHIVO");
@@ -105,6 +105,6 @@ public class Notass implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Notass();
+        new Notepad();
     }
 }
