@@ -4,7 +4,7 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
 
-public class Notepad implements ActionListener {
+public class Notass implements ActionListener {
 
     Frame f;
     MenuBar mb;
@@ -21,21 +21,21 @@ public class Notepad implements ActionListener {
     FileNameExtensionFilter filter;
     String destino;
 
-    public Notepad() {
-        f = new Frame("NOTAS");
+    public Notass() {
+        f = new Frame("NOTES");
         mb = new MenuBar();
-        m1 = new Menu("ARCHIVO");
-        m2 = new Menu("EDICION");
-        m3 = new Menu("ACERCA DE");
-        mi1 = new MenuItem("NUEVO");
-        mi2 = new MenuItem("ABRIR");
-        mi3 = new MenuItem("GUARDAR");
-        mi4 = new MenuItem("SALIR");
-        mi5 = new MenuItem("DATOS DEL AUTOR");
+        m1 = new Menu("FILE");
+        m2 = new Menu("EDIT");
+        m3 = new Menu("ABOUT");
+        mi1 = new MenuItem("NEW");
+        mi2 = new MenuItem("OPEN");
+        mi3 = new MenuItem("SAVE");
+        mi4 = new MenuItem("EXIT");
+        mi5 = new MenuItem("AUTHOR INFO");
         mi6 = new MenuItem("VERSION");
-        mi7 = new MenuItem("BARRA DE HERRAMIENTAS");
+        mi7 = new MenuItem("TOOLBAR");
 
-        ta = new TextArea("Escribe aqui");
+        ta = new TextArea("Write here");
         f.add(ta);
 
         mi2.addActionListener(this);
@@ -53,15 +53,15 @@ public class Notepad implements ActionListener {
         m3.add(mi6);
         f.setMenuBar(mb);
 
-        // Barra de herramientas
-        f2 = new JFrame("Barra Herramientas");
-        barra = new JToolBar("Herramientas de edicion", JToolBar.HORIZONTAL);
-        b1 = new JButton("Cortar");
-        b2 = new JButton("Seleccionar");
-        b3 = new JButton("Copiar");
-        cb = new Checkbox("Copiar");
-        cb2 = new Checkbox("Cortar");
-        cb3 = new Checkbox("Seleccionar");
+        // Toolbar
+        f2 = new JFrame("Toolbar");
+        barra = new JToolBar("Editing tools", JToolBar.HORIZONTAL);
+        b1 = new JButton("Cut");
+        b2 = new JButton("Select");
+        b3 = new JButton("Copy");
+        cb = new Checkbox("Copy");
+        cb2 = new Checkbox("Cut");
+        cb3 = new Checkbox("Select");
 
         barra.add(b1);
         barra.add(b2);
@@ -83,7 +83,7 @@ public class Notepad implements ActionListener {
     public void leer() {
         try {
             chooser = new JFileChooser();
-            filter = new FileNameExtensionFilter("TEXTO PLANO", "txt", "c", "cpp", "java", "bat");
+            filter = new FileNameExtensionFilter("PLAIN TEXT", "txt", "c", "cpp", "java", "bat");
             chooser.setFileFilter(filter);
             int returnVal = chooser.showSaveDialog(f);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -91,10 +91,10 @@ public class Notepad implements ActionListener {
                 FileWriter fw = new FileWriter(destino);
                 fw.write(ta.getText());
                 fw.close();
-                System.out.println("Archivo guardado en: " + destino);
+                System.out.println("File saved at: " + destino);
             }
         } catch (IOException e) {
-            System.out.println("Error E/S: " + e);
+            System.out.println("I/O Error: " + e);
         }
     }
 
@@ -105,6 +105,6 @@ public class Notepad implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Notepad();
+        new Notass();
     }
 }
